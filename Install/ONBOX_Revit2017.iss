@@ -30,12 +30,12 @@ SolidCompression=yes
 WizardSmallImageFile =E:\Source\Repos\JieGou\OnboxApp\Install\InstallerCornerLogo.bmp
 WizardImageFile =E:\Source\Repos\JieGou\OnboxApp\Install\InstallerMainLogo.bmp
 UninstallFilesDir={commonappdata}\Autodesk\Revit\Addins\2018\ONBOX\Desinstalar\
-UninstallDisplayName=Desinstalar OnboxApp beta 0605 R2018
+UninstallDisplayName=Uninstall OnboxApp1.1.2.0 R2018
 DisableWelcomePage=no
-OutputBaseFilename=OnboxApp beta 0605 R2018
+OutputBaseFilename=OnboxApp1.1.2.0 R2018
 
 [Languages]
-Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
+Name: "chinesesimp"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
 [Files]
 Source: "E:\Source\Repos\JieGou\OnboxApp\ONBOXApp\bin\x64\Release2018\ONBOXAppl.dll"; DestDir: "{app}"; Flags: ignoreversion
