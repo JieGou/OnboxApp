@@ -23,12 +23,12 @@ DisableDirPage=yes
 DisableProgramGroupPage=yes
 DefaultGroupName={#MyAppName}
 LicenseFile = EULA.rtf
-InfoBeforeFile=C:\Users\I7\Documents\Repos\onboxapp\Install\BETA VERSION.txt
-SetupIconFile=C:\Users\I7\Documents\Repos\onboxapp\Install\onbox_install_icon.ico
+InfoBeforeFile=E:\Source\Repos\JieGou\OnboxApp\Install\BETA VERSION.txt
+SetupIconFile=E:\Source\Repos\JieGou\OnboxApp\Install\onbox_install_icon.ico
 Compression=lzma
 SolidCompression=yes
-WizardSmallImageFile =C:\Users\I7\Documents\Repos\onboxapp\Install\InstallerCornerLogo.bmp
-WizardImageFile =C:\Users\I7\Documents\Repos\onboxapp\Install\InstallerMainLogo.bmp
+WizardSmallImageFile =E:\Source\Repos\JieGou\OnboxApp\Install\InstallerCornerLogo.bmp
+WizardImageFile =E:\Source\Repos\JieGou\OnboxApp\Install\InstallerMainLogo.bmp
 UninstallFilesDir={commonappdata}\Autodesk\Revit\Addins\2018\ONBOX\Desinstalar\
 UninstallDisplayName=Desinstalar OnboxApp beta 0605 R2018
 DisableWelcomePage=no
@@ -38,8 +38,8 @@ OutputBaseFilename=OnboxApp beta 0605 R2018
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
 [Files]
-Source: "C:\Users\I7\Documents\Repos\onboxapp\ONBOXApp\bin\x64\Release\ONBOXApp.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\I7\Documents\Repos\onboxapp\ONBOXApp\ONBOXApp.addin"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\I7\Documents\Repos\onboxapp\Install\ONBOX\*"; DestDir: "{app}\ONBOX\"; Flags: recursesubdirs createallsubdirs
+Source: "E:\Source\Repos\JieGou\OnboxApp\ONBOXApp\bin\x64\Release2018\ONBOXAppl.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\Source\Repos\JieGou\OnboxApp\OnboxApp.bundle\Contents\2018\ONBOXApp.addin"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\Source\Repos\JieGou\OnboxApp\Install\*"; DestDir: "{app}\ONBOX\"; Flags: recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
