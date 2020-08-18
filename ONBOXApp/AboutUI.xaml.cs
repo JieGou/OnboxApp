@@ -50,20 +50,34 @@ namespace ONBOXAppl
                     ONBOXApplication.isRegister = false;
                     this.DialogResult = true;
                 }
-
             }
         }
 
+        /// <summary>
+        /// 点击youtube——中转到youtube网页
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void imgYoutube_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.youtube.com/user/mrthiagokurumada");
         }
 
+        /// <summary>
+        /// 点击onbox图片——跳转到主页
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void imgOnbox_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.onboxdesign.com.br/");
         }
 
+        /// <summary>
+        /// 点击mail图片——跳转到联系
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void imgMail_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             System.Diagnostics.Process.Start("http://www.onboxdesign.com.br/contato/");

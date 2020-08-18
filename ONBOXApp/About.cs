@@ -13,8 +13,11 @@ using System.Xml;
 
 namespace ONBOXAppl
 {
+    /// <summary>
+    /// 打开ONBOX主页
+    /// </summary>
     [Transaction(TransactionMode.Manual)]
-    class SiteONBOX : IExternalCommand
+    internal class SiteONBOX : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -23,8 +26,11 @@ namespace ONBOXAppl
         }
     }
 
+    /// <summary>
+    /// 关于
+    /// </summary>
     [Transaction(TransactionMode.Manual)]
-    class AboutONBOXApp : IExternalCommand
+    internal class AboutONBOXApp : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -33,15 +39,20 @@ namespace ONBOXAppl
             return Result.Succeeded;
         }
     }
+
+    /// <summary>
+    /// 程序项目文件夹
+    /// </summary>
     [Transaction(TransactionMode.Manual)]
-    class ProjectFolder : IExternalCommand
+    internal class ProjectFolder : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             string version = commandData.Application.Application.VersionNumber;
-            if (Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\Autodesk\\Revit\\Addins\\" + version + "\\ONBOX\\Project Examples"))
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\Autodesk\\Revit\\Addins\\" + version + "\\ONBOX\\"/* "\\ONBOX\\Project Examples"*/;
+            if (Directory.Exists(path))
             {
-                System.Diagnostics.Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\Autodesk\\Revit\\Addins\\" + version + "\\ONBOX\\Project Examples");
+                System.Diagnostics.Process.Start(path);
             }
             else
             {

@@ -11,17 +11,19 @@
     <Grid>
         <StackPanel Margin="10">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <StackPanel Orientation="Horizontal" >
-                    <Image x:Name="imgOnbox" Source="Resources/ONBOXApps.png" HorizontalAlignment="Left" Height="60" Cursor="Hand" MouseDown="imgOnbox_MouseDown"/>
+                <StackPanel Orientation="Horizontal">
+                    <Image x:Name="imgOnbox" Source="Resources/ONBOXApps.png" HorizontalAlignment="Left" Height="60" Cursor="Hand" MouseDown="imgOnbox_MouseDown" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <Image x:Name="imgYoutube" Source="Resources/youtube.png" HorizontalAlignment="Right" Height="40" Margin="20,0" MouseDown="imgYoutube_MouseDown" Cursor="Hand"/>
-                    <Image x:Name="imgMail" Source="pack://siteoforigin:,,,/Resources/mail.png" HorizontalAlignment="Right" Height="40" Margin="20,0" Cursor="Hand" MouseDown="imgMail_MouseDown"/>
+                    <Image x:Name="imgYoutube" Source="Resources/youtube.png" HorizontalAlignment="Right" Height="40" Margin="20,0" MouseDown="imgYoutube_MouseDown" Cursor="Hand" />
+                    <Image x:Name="imgMail" Source="Resources/mail.png" HorizontalAlignment="Right" Height="40" Margin="20,0" Cursor="Hand" MouseDown="imgMail_MouseDown" />
                 </StackPanel>
             </StackPanel>
             <StackPanel>
                 <ScrollViewer Margin="0,10,0,0" Background="#FFF1F1F1" BorderThickness="1" BorderBrush="#FF111111" Height="200" MaxHeight="200">
-                    <TextBox x:Name="textInformation" Text="{x:Static p:WindowLanguage.About_Information}" IsReadOnly="True" Margin="5" Background="#FFF1F1F1" TextWrapping="Wrap" TextAlignment="Justify" BorderBrush="{x:Null}" BorderThickness="0"/>
+                    <TextBox x:Name="textInformation" Text="{x:Static p:WindowLanguage.About_Information}"
+                             IsReadOnly="True" Margin="5" Background="#FFF1F1F1" TextWrapping="Wrap"
+                             TextAlignment="Justify" BorderBrush="{x:Null}" BorderThickness="0" />
                 </ScrollViewer>
             </StackPanel>
             <DockPanel>
@@ -35,8 +37,8 @@
                            FontWeight="Bold" />
             </DockPanel>
             <StackPanel Margin="0,10,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="btnInfo" Content="{x:Static p:WindowLanguage.About_Website}"  Width="90" Height="24" HorizontalAlignment="Right" Margin="10,0,0,0" Click="btnInfo_Click"/>
-                <Button x:Name="btnOK" Content="{x:Static p:WindowLanguage.Common_OK}" Width="90" Height="24" HorizontalAlignment="Right" Margin="10,0,0,0" Click="btnOK_Click"/>
+                <Button x:Name="btnInfo" Content="{x:Static p:WindowLanguage.About_Website}"  Width="90" Height="24" HorizontalAlignment="Right" Margin="10,0,0,0" Click="btnInfo_Click" />
+                <Button x:Name="btnOK" Content="{x:Static p:WindowLanguage.Common_OK}" Width="90" Height="24" HorizontalAlignment="Right" Margin="10,0,0,0" Click="btnOK_Click" />
             </StackPanel>
         </StackPanel>
     </Grid>

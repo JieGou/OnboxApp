@@ -1,20 +1,21 @@
-﻿using System;
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Autodesk.Revit.UI.Events;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
 using System.Windows.Media.Imaging;
-using System.IO;
 using System.Xml;
-using System.Globalization;
-using System.Reflection;
-using Autodesk.Revit.UI.Events;
 
 namespace ONBOXAppl
 {
-    enum ExternalOperation { Create, Reload, Unsubscribe, LoadFamily };
+    internal enum ExternalOperation
+    { Create, Reload, Unsubscribe, LoadFamily };
 
     partial class ONBOXApplication : IExternalApplication
     {
@@ -42,13 +43,11 @@ namespace ONBOXAppl
         internal RequestBeamsUpdateHandler requestBeamsUpdateHandler = null;
         internal ExternalEvent externalBeamsUpdateEvent = null;
 
- 
         internal ElementJoinSelectUI joinElementSelectWindow = null;
         internal RequestElementsSelectHandler requestjoinElementSelecHandler = null;
         internal ExternalEvent joinElementSelecEvent = null;
 
-
-        static AddInId appId = new AddInId(new Guid("33DC8041-8285-4A21-B0A3-63DCC326A4C8"));
+        private static AddInId appId = new AddInId(new Guid("33DC8041-8285-4A21-B0A3-63DCC326A4C8"));
 
         public Result OnShutdown(UIControlledApplication application)
         {
@@ -145,13 +144,11 @@ namespace ONBOXAppl
                 joinElementSelectWindow = new ElementJoinSelectUI(joinElementSelecEvent, requestjoinElementSelecHandler);
                 joinElementSelectWindow.Show();
                 joinElementSelectWindow.isShowned = true;
-
             }
         }
 
         internal void joinElementSelectWindow_ViewActivated(object sender, ViewActivatedEventArgs e)
         {
-            
         }
 
         internal void BeamsUpdate_ViewActivated(object sender, Autodesk.Revit.UI.Events.ViewActivatedEventArgs e)
@@ -217,7 +214,7 @@ namespace ONBOXAppl
 
             PushButton btnCreateBeamsFromBuilding = panelStructuralMembers.AddItem(new PushButtonData(Properties.RibbonLanguage.StructuralElements_BeamsForBuilding, Properties.RibbonLanguage.StructuralElements_BeamsForBuilding.Replace("\\n", "\n"), dll, "ONBOXAppl.BeamsFromEntireBuilding")) as PushButton;
             btnCreateBeamsFromBuilding.SetContextualHelp(new ContextualHelp(ContextualHelpType.Url, Properties.HelpLinks.btnCreateBeamsFromBuilding));
-            PushButton btnCreateBeam = panelStructuralMembers.AddItem(new PushButtonData(Properties.RibbonLanguage.StructuralElements_BeamsFromWalls, Properties.RibbonLanguage.StructuralElements_BeamsFromWalls.Replace("\\n","\n"), dll, "ONBOXAppl.BeamsFromWalls")) as PushButton;
+            PushButton btnCreateBeam = panelStructuralMembers.AddItem(new PushButtonData(Properties.RibbonLanguage.StructuralElements_BeamsFromWalls, Properties.RibbonLanguage.StructuralElements_BeamsFromWalls.Replace("\\n", "\n"), dll, "ONBOXAppl.BeamsFromWalls")) as PushButton;
             btnCreateBeam.SetContextualHelp(new ContextualHelp(ContextualHelpType.Url, Properties.HelpLinks.btnCreateBeam));
             PushButton btnCreateBeamsFromColumns = panelStructuralMembers.AddItem(new PushButtonData(Properties.RibbonLanguage.StructuralElements_BeamsFromColumns, Properties.RibbonLanguage.StructuralElements_BeamsFromColumns.Replace("\\n", "\n"), dll, "ONBOXAppl.BeamsFromColumns")) as PushButton;
             btnCreateBeamsFromColumns.SetContextualHelp(new ContextualHelp(ContextualHelpType.Url, Properties.HelpLinks.btnCreateBeamsFromColumns));
@@ -242,7 +239,7 @@ namespace ONBOXAppl
             btnRevitZip.SetContextualHelp(new ContextualHelp(ContextualHelpType.Url, Properties.HelpLinks.btnRevitZip));
 
             PushButton btnONBOXSite = panelAbout.AddItem(new PushButtonData("  Onbox  ", "  Onbox  ", dll, "ONBOXAppl.SiteONBOX")) as PushButton;
-            //PushButton btnProjectExamplesFolder = panelAbout.AddItem(new PushButtonData(Properties.RibbonLanguage.About_SampleProjects, Properties.RibbonLanguage.About_SampleProjects.Replace("\\n", "\n"), dll, "ONBOXAppl.ProjectFolder")) as PushButton;
+            PushButton btnProjectExamplesFolder = panelAbout.AddItem(new PushButtonData(Properties.RibbonLanguage.About_SampleProjects, Properties.RibbonLanguage.About_SampleProjects.Replace("\\n", "\n"), dll, "ONBOXAppl.ProjectFolder")) as PushButton;
             PushButton btnInfo = panelAbout.AddItem(new PushButtonData(Properties.RibbonLanguage.About_Title, Properties.RibbonLanguage.About_Title, dll, "ONBOXAppl.AboutONBOXApp")) as PushButton;
 
             //SplitButtons for Parking
@@ -297,8 +294,8 @@ namespace ONBOXAppl
             BitmapImage ONBOX16 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/onBox16.png", UriKind.Absolute));
             BitmapImage INFO32 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnInfo32.png", UriKind.Absolute));
             BitmapImage INFO16 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnInfo16.png", UriKind.Absolute));
-            //BitmapImage ProjectExamples16 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnProjectExamplesFolder16.png", UriKind.Absolute));
-            //BitmapImage ProjectExamples32 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnProjectExamplesFolder.png", UriKind.Absolute));
+            BitmapImage ProjectExamples16 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnProjectExamplesFolder16.png", UriKind.Absolute));
+            BitmapImage ProjectExamples32 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnProjectExamplesFolder.png", UriKind.Absolute));
             BitmapImage Package16 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnPackage16.png", UriKind.Absolute));
             BitmapImage Package32 = new BitmapImage(new Uri("pack://application:,,,/ONBOXAppl;component/Resources/btnPackage32.png", UriKind.Absolute));
 
@@ -312,12 +309,12 @@ namespace ONBOXAppl
             btnRenumberBeams.LargeImage = beams32;
             btnRenumberBeams.Image = beams16;
             btnRenumberBeams.ToolTip = Properties.RibbonLanguage.RenumberElements_RenumberBeams_ToolTip;
-            btnRenumberBeams.LongDescription = Properties.RibbonLanguage.RenumberElements_RenumberBeams_Descrip; 
+            btnRenumberBeams.LongDescription = Properties.RibbonLanguage.RenumberElements_RenumberBeams_Descrip;
 
             btnRenumberColumns.LargeImage = Column32;
             btnRenumberColumns.Image = Column16;
             btnRenumberColumns.ToolTip = Properties.RibbonLanguage.RenumberElements_Columns_ToolTip;
-            btnRenumberColumns.LongDescription =Properties.RibbonLanguage.RenumberElements_Columns_Descrip;
+            btnRenumberColumns.LongDescription = Properties.RibbonLanguage.RenumberElements_Columns_Descrip;
 
             btnRenumberColumnsSelect.LargeImage = Column32Select;
             btnRenumberColumnsSelect.Image = Column16Select;
@@ -387,10 +384,10 @@ namespace ONBOXAppl
             btnInfo.ToolTip = Properties.RibbonLanguage.About_Onbox_ToolTip;
             btnInfo.ToolTip = Properties.RibbonLanguage.About_Onbox_Descrip;
 
-            //btnProjectExamplesFolder.Image = ProjectExamples16;
-            //btnProjectExamplesFolder.LargeImage = ProjectExamples32;
-            //btnProjectExamplesFolder.ToolTip = Properties.RibbonLanguage.About_SampleProjects_ToolTip;
-            //btnProjectExamplesFolder.LongDescription = Properties.RibbonLanguage.About_SampleProjects_Descrip;
+            btnProjectExamplesFolder.Image = ProjectExamples16;
+            btnProjectExamplesFolder.LargeImage = ProjectExamples32;
+            btnProjectExamplesFolder.ToolTip = Properties.RibbonLanguage.About_SampleProjects_ToolTip;
+            btnProjectExamplesFolder.LongDescription = Properties.RibbonLanguage.About_SampleProjects_Descrip;
 
             btnRevitZip.Image = Package16;
             btnRevitZip.LargeImage = Package32;
@@ -435,7 +432,7 @@ namespace ONBOXAppl
                     }
                 }
             }
-            
+
             foreach (RibbonPanel currentRibbonPanel in allFreePanels)
             {
                 if (currentRibbonPanel != null)
@@ -458,11 +455,10 @@ namespace ONBOXAppl
                     }
                 }
             }
-            
         }
     }
 
-    class ButtonAvailableOnProjectEnv : IExternalCommandAvailability
+    internal class ButtonAvailableOnProjectEnv : IExternalCommandAvailability
     {
         public bool IsCommandAvailable(UIApplication applicationData, CategorySet selectedCategories)
         {
@@ -475,12 +471,17 @@ namespace ONBOXAppl
                 return false;
             }
             else if (applicationData.ActiveUIDocument.Document.IsFamilyDocument)
+            {
                 return false;
+            }
             else
+            {
                 return true;
+            }
         }
     }
-    class ButtonAvailableAlways : IExternalCommandAvailability
+
+    internal class ButtonAvailableAlways : IExternalCommandAvailability
     {
         public bool IsCommandAvailable(UIApplication applicationData, CategorySet selectedCategories)
         {
